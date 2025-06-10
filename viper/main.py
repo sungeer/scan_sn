@@ -10,8 +10,9 @@ import serial
 import serial.tools.list_ports
 from loguru import logger
 from dotenv import find_dotenv, load_dotenv
-from PySide6.QtCore import QSharedMemory, Qt
+from PySide6.QtCore import QSharedMemory, Qt, QSize
 from PySide6.QtGui import QCursor
+from PySide6.QtGui import QIcon
 from PySide6.QtWidgets import (
     QWidget,
     QMessageBox,
@@ -21,9 +22,9 @@ from PySide6.QtWidgets import (
     QLabel,
     QLineEdit,
     QPushButton,
-    QSpacerItem,
-    QSizePolicy
 )
+
+from viper import resource_rc  # noqa
 
 
 load_dotenv(find_dotenv())
@@ -185,6 +186,9 @@ class MainWindow(QWidget):
     def __init__(self):
         super().__init__()
         self.setWindowTitle('Scan SN')
+        icon = QIcon()
+        icon.addFile(u":/icon/scan.ico", QSize(), QIcon.Normal, QIcon.Off)  # noqa
+        self.setWindowIcon(icon)
         self.setFixedSize(600, 400)  # 固定窗口大小
 
         self.config = get_config()

@@ -5,17 +5,8 @@ pip install -r requirements.txt
 
 python -m pip install psutil PySide6 loguru pyserial pyinstaller python-dotenv
 
-pyside6-rcc resources.qrc -o resources_rc.py
+pyside6-rcc resource.qrc -o resource_rc.py
 
-
-# mix mix/libs
-pyinstaller --name=rrd_nfc --onefile --windowed --icon=mix/assets/rrd.ico --add-data "mix/libs/OUR_MIFAREvid01.dll;." --add-data "mix/libs/OUR_MIFAREvid02.dll;." --add-data "mix/libs/OUR_MIFAREvid03.dll;." --add-data "mix/libs/OUR_MIFAREvid04.dll;." --add-data "mix/libs/OUR_MIFAREvid05.dll;." --add-data "mix/libs/OUR_MIFAREvid06.dll;." --add-data "mix/libs/OUR_MIFAREvid07.dll;." --add-data "mix/libs/OUR_MIFAREvid08.dll;." --add-data "mix/libs/OUR_MIFAREvid09.dll;." --add-data "mix/libs/snap7.dll;." client_mix.py
-
-
-# mix
-pyinstaller --name=rrd_nfc --onefile --windowed --icon=rrd.ico --add-data "OUR_MIFAREvid01.dll;." --add-data "OUR_MIFAREvid02.dll;." --add-data "OUR_MIFAREvid03.dll;." --add-data "OUR_MIFAREvid04.dll;." --add-data "OUR_MIFAREvid05.dll;." --add-data "OUR_MIFAREvid06.dll;." --add-data "OUR_MIFAREvid07.dll;." --add-data "OUR_MIFAREvid08.dll;." --add-data "OUR_MIFAREvid09.dll;." --add-data "snap7.dll;." client_mix.py
-
-pyside6-uic client_mix_ui.ui -o client_mix_ui.py
 
 
 # rotate
@@ -28,6 +19,7 @@ pyside6-uic client_rotate_ui.ui -o client_rotate_ui.py
 pyside6-uic client_many_ui.ui -o client_many_ui.py
 
 
+pyinstaller --name=scan_sn --onefile --windowed --icon=scan.ico main.py
 
 
 
